@@ -1,0 +1,154 @@
+{
+	"name": "vscode-modern-vhdl-support",
+	"displayName": "Modern VHDL",
+	"description": "VHDL Language Support",
+	"publisher": "rjyoung",
+	"version": "1.0.5",
+	"license": "MIT",
+	"icon": "images/logo.png",
+	"engines": {
+		"vscode": "^1.18.0"
+	},
+	"main": "./out/extension.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/richjyoung/vscode-modern-vhdl.git"
+	},
+	"categories": [
+		"Programming Languages",
+		"Snippets"
+	],
+	"keywords": [
+		"vhdl",
+		"language-vhdl",
+		"hdl",
+		"vhd"
+	],
+	"activationEvents": [
+		"onLanguage:vhdl"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "vhdl",
+				"aliases": [
+					"VHDL",
+					"vhdl"
+				],
+				"extensions": [
+					".vhd",
+					".vhdl",
+					".vho"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "vhdl",
+				"scopeName": "source.vhdl",
+				"path": "./syntaxes/vhdl.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "vhdl",
+				"path": "./snippets/vhdl.json"
+			}
+		],
+		"configuration": [
+			{
+				"title": "VHDL",
+				"properties": {
+					"vhdl.suggestLibraryCase": {
+						"type": "string",
+						"scope": "resource",
+						"default": "upper",
+						"enum": [
+							"upper",
+							"lower"
+						],
+						"description": "Sets the case of inserted text for Library names."
+					},
+					"vhdl.suggestPackageCase": {
+						"type": "string",
+						"scope": "resource",
+						"default": "lower",
+						"enum": [
+							"upper",
+							"lower"
+						],
+						"description": "Sets the case of inserted text for Package names."
+					},
+					"vhdl.suggestAttributeCase": {
+						"type": "string",
+						"scope": "resource",
+						"default": "lower",
+						"enum": [
+							"upper",
+							"lower"
+						],
+						"description": "Sets the case of inserted text for Attribute names."
+					},
+					"vhdl.enableStutterDelimiters": {
+						"type": "boolean",
+						"scope": "resource",
+						"default": false,
+						"description": "Enables delimiter substitutions similar to Emacs vhdl-stutter-mode. \"editor.formatOnType\" must also be enabled."
+					},
+					"vhdl.enableStutterBrackets": {
+						"type": "boolean",
+						"scope": "resource",
+						"default": false,
+						"description": "Enables bracket substitutions similar to Emacs vhdl-stutter-mode. \"editor.formatOnType\" must also be enabled."
+					},
+					"vhdl.enableStutterComments": {
+						"type": "boolean",
+						"scope": "resource",
+						"default": false,
+						"description": "Enables comment substitutions similar to Emacs vhdl-stutter-mode. \"editor.formatOnType\" must also be enabled."
+					},
+					"vhdl.stutterCompletionsBlockWidth": {
+						"type": "integer",
+						"scope": "resource",
+						"default": 80,
+						"description": "Width of block comment elements inserted by stutter completions."
+					},
+					"vhdl.stutterCompletionsMaxWidth": {
+						"type": "integer",
+						"scope": "resource",
+						"default": 0,
+						"description": "Max width of block comment elements inserted by stutter completions. Set to zero to disable."
+					}
+				}
+			}
+		]
+	},
+	"scripts": {
+		"build": "npm run-script build:syntax && npm run-script build:snippets",
+		"build:snippets": "js-yaml ./snippets/vhdl.yml > ./snippets/vhdl.json",
+		"build:syntax": "js-yaml ./syntaxes/vhdl.tmLanguage.yml > ./syntaxes/vhdl.tmLanguage.json",
+		"compile": "tsc -p ./",
+		"watch": "npm run-script build && tsc -watch -p ./",
+		"vscode:prepublish": "npm run-script build && npm run-script compile",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"@types/node": "^10.17.5",
+		"js-yaml": "^3.13.1",
+		"tslint": "^5.20.1",
+		"typescript": "^3.7.2",
+		"vscode": "^1.1.36"
+	},
+	"prettier": {
+		"printWidth": 100,
+		"semi": true,
+		"singleQuote": true,
+		"tabWidth": 4
+	},
+	"__metadata": {
+		"id": "b8c113d9-5eea-4729-bb11-47a1889e03e0",
+		"publisherId": "27dc001b-947c-479b-bf0f-1d18d5740772",
+		"publisherDisplayName": "rjyoung"
+	}
+}

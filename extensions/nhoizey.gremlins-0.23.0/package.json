@@ -1,0 +1,198 @@
+{
+	"name": "gremlins",
+	"displayName": "Gremlins tracker for Visual Studio Code",
+	"version": "0.23.0",
+	"publisher": "nhoizey",
+	"author": {
+		"name": "Nicolas Hoizey",
+		"email": "nicolas@hoizey.com",
+		"url": "https://nicolas-hoizey.com/"
+	},
+	"contributors": [
+		{
+			"name": "Anthony Ricaud",
+			"url": "https://github.com/rik"
+		},
+		{
+			"name": "Jon Senchyna",
+			"url": "https://github.com/TheSench"
+		}
+	],
+	"description": "Reveals some characters that can be harmful because they are invisible or looking like legitimate ones. Inspired by Sublime Gremlins.",
+	"icon": "images/gremlins-dark.png",
+	"galleryBanner": {
+		"color": "#843534",
+		"theme": "dark"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/nhoizey/vscode-gremlins/",
+	"repository": "https://github.com/nhoizey/vscode-gremlins.git",
+	"badges": [
+		{
+			"href": "https://marketplace.visualstudio.com/items?itemName=nhoizey.gremlins",
+			"url": "https://img.shields.io/vscode-marketplace/d/nhoizey.gremlins.svg",
+			"description": "Visual Studio Marketplace"
+		},
+		{
+			"href": "https://marketplace.visualstudio.com/items?itemName=nhoizey.gremlins",
+			"url": "https://img.shields.io/github/package-json/v/nhoizey/vscode-gremlins.svg",
+			"description": "GitHub package version"
+		},
+		{
+			"href": "https://travis-ci.org/nhoizey/vscode-gremlins",
+			"url": "https://img.shields.io/travis/nhoizey/vscode-gremlins.svg",
+			"description": "Travis CI"
+		}
+	],
+	"engines": {
+		"vscode": "^1.30.0"
+	},
+	"categories": [
+		"Linters"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Gremlins",
+			"properties": {
+				"gremlins.color_info": {
+					"type": "string",
+					"default": "rgba(60, 118, 61, .75)",
+					"markdownDescription": "Color for **info** level"
+				},
+				"gremlins.color_warning": {
+					"type": "string",
+					"default": "rgba(138, 109, 59, .75)",
+					"markdownDescription": "Color for **warning** level"
+				},
+				"gremlins.color_error": {
+					"type": "string",
+					"default": "rgba(169, 68, 66, .75)",
+					"markdownDescription": "Color for **error** level"
+				},
+				"gremlins.characters": {
+					"type": "object",
+					"description": "List of characters the extension should track",
+					"default": {
+						"2013": {
+							"description": "en dash",
+							"level": "warning"
+						},
+						"2018": {
+							"description": "left single quotation mark",
+							"level": "warning"
+						},
+						"2019": {
+							"description": "right single quotation mark",
+							"level": "warning"
+						},
+						"2029": {
+							"zeroWidth": true,
+							"description": "paragraph separator",
+							"level": "error"
+						},
+						"0003": {
+							"description": "end of text",
+							"level": "warning"
+						},
+						"000b": {
+							"description": "line tabulation",
+							"level": "warning"
+						},
+						"00a0": {
+							"description": "non breaking space",
+							"level": "info"
+						},
+						"00ad": {
+							"description": "soft hyphen",
+							"level": "info"
+						},
+						"200b": {
+							"zeroWidth": true,
+							"description": "zero width space",
+							"level": "error"
+						},
+						"200c": {
+							"zeroWidth": true,
+							"description": "zero width non-joiner",
+							"level": "warning"
+						},
+						"200e": {
+							"zeroWidth": true,
+							"description": "left-to-right mark",
+							"level": "error"
+						},
+						"201c": {
+							"description": "left double quotation mark",
+							"level": "warning"
+						},
+						"201d": {
+							"description": "right double quotation mark",
+							"level": "warning"
+						},
+						"202c": {
+							"zeroWidth": true,
+							"description": "pop directional formatting",
+							"level": "error"
+						},
+						"202d": {
+							"zeroWidth": true,
+							"description": "left-to-right override",
+							"level": "error"
+						},
+						"202e": {
+							"zeroWidth": true,
+							"description": "right-to-left override",
+							"level": "error"
+						},
+						"fffc": {
+							"zeroWidth": true,
+							"description": "object replacement character",
+							"level": "error"
+						}
+					},
+					"items": {
+						"type": "object"
+					},
+					"minItems": 1,
+					"uniqueItems": true
+				},
+				"gremlins.gutterIconSize": {
+					"type": "string",
+					"default": "75%",
+					"description": "gutter icon size"
+				},
+				"gremlins.showInProblemPane": {
+					"type": "boolean",
+					"default": false,
+					"description": "Show gremlins in the problem pane"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"prettier": "prettier --write '**/*{js,json}'",
+		"test": "jest"
+	},
+	"prettier": {
+		"semi": false,
+		"singleQuote": true,
+		"trailingComma": "all"
+	},
+	"devDependencies": {
+		"eslint": "^7.2.0",
+		"jest": "^26.0.1",
+		"prettier": "^2.0.5",
+		"vscode-test": "^1.4.0",
+		"@types/vscode": "^1.30.0"
+	},
+	"__metadata": {
+		"id": "0fcefdd8-e09c-4b96-9998-f5dc891893dd",
+		"publisherId": "1e02cadf-733a-47be-8772-75da47b7921f",
+		"publisherDisplayName": "Nicolas Hoizey"
+	}
+}

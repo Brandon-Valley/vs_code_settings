@@ -1,0 +1,82 @@
+{
+	"name": "rainbow-end",
+	"publisher": "jduponchelle",
+	"license": "Apache-2.0",
+	"displayName": "Rainbow End",
+	"description": "This extension allows to identify keyword / end with colours.",
+	"version": "0.7.7",
+	"icon": "images/logo.png",
+	"engines": {
+		"vscode": "^1.29.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/noplay/vscode-rainbow-end.git"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:ruby",
+		"onLanguage:lua",
+		"onLanguage:elixir",
+		"onLanguage:crystal",
+		"onLanguage:shellscript",
+		"onLanguage:verilog",
+		"onLanguage:vhdl",
+		"onLanguage:COBOL",
+		"onLanguage:julia",
+		"onLanguage:fish",
+		"onLanguage:systemverilog"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"colors": [
+			{
+				"id": "rainbowend.deep1",
+				"description": "Rainbow End color 1",
+				"defaults": {
+					"dark": "#e06c75",
+					"light": "#e06c75",
+					"highContrast": "#ff0015"
+				}
+			},
+			{
+				"id": "rainbowend.deep2",
+				"description": "Rainbow End color 2",
+				"defaults": {
+					"dark": "#6ca2e0",
+					"light": "#6ca2e0",
+					"highContrast": "#1900ff"
+				}
+			},
+			{
+				"id": "rainbowend.deep3",
+				"description": "Rainbow End color 3",
+				"defaults": {
+					"dark": "#e0de6c",
+					"light": "#6ce085",
+					"highContrast": "#fffb00"
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/node": "^8.10.25",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.26"
+	},
+	"__metadata": {
+		"id": "b3d98311-10c2-41e4-bac5-ddb9e9913f62",
+		"publisherId": "082e1c84-ee1f-4497-95e9-e19593a654aa",
+		"publisherDisplayName": "Julien Duponchelle"
+	}
+}

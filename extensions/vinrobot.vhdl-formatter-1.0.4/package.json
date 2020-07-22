@@ -1,0 +1,167 @@
+{
+	"name": "vhdl-formatter",
+	"displayName": "VHDL Formatter",
+	"description": "",
+	"version": "1.0.4",
+	"publisher": "Vinrobot",
+	"engines": {
+		"vscode": "^1.25.0"
+	},
+	"categories": [
+		"Formatters"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Vinrobot/vscode-vhdl-formatter.git"
+	},
+	"activationEvents": [
+		"onLanguage:vhdl"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"languages": [
+			{
+				"id": "vhdl",
+				"aliases": [
+					"VHDL",
+					"vhdl",
+					"vhdl-lang"
+				],
+				"extensions": [
+					"vhdl",
+					"vhd",
+					"vho",
+					"vht"
+				]
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "VHDL Formatter",
+			"properties": {
+				"vhdl.formatter.replaceByAliases": {
+					"type": "boolean",
+					"default": false,
+					"description": ""
+				},
+				"vhdl.formatter.align.all": {
+					"type": "boolean",
+					"default": false,
+					"description": ""
+				},
+				"vhdl.formatter.align.port": {
+					"type": "boolean",
+					"default": false,
+					"description": ""
+				},
+				"vhdl.formatter.align.function": {
+					"type": "boolean",
+					"default": false,
+					"description": ""
+				},
+				"vhdl.formatter.align.procedure": {
+					"type": "boolean",
+					"default": false,
+					"description": ""
+				},
+				"vhdl.formatter.align.generic": {
+					"type": "boolean",
+					"default": false,
+					"description": ""
+				},
+				"vhdl.formatter.align.mode": {
+					"type": "string",
+					"default": "Local",
+					"enum": [
+						"Local",
+						"Global"
+					],
+					"description": ""
+				},
+				"vhdl.formatter.case.keyword": {
+					"type": "string",
+					"default": "UpperCase",
+					"enum": [
+						"UpperCase",
+						"LowerCase",
+						"DefaultCase"
+					],
+					"description": ""
+				},
+				"vhdl.formatter.case.typename": {
+					"type": "string",
+					"default": "UpperCase",
+					"enum": [
+						"UpperCase",
+						"LowerCase",
+						"DefaultCase"
+					],
+					"description": ""
+				},
+				"vhdl.formatter.newline.port": {
+					"type": "string",
+					"default": "None",
+					"enum": [
+						"NewLine",
+						"NoNewLine",
+						"None"
+					],
+					"description": ""
+				},
+				"vhdl.formatter.newline.then": {
+					"type": "string",
+					"default": "NewLine",
+					"enum": [
+						"NewLine",
+						"NoNewLine",
+						"NewLine"
+					],
+					"description": ""
+				},
+				"vhdl.formatter.newline.semicolon": {
+					"type": "string",
+					"default": "NewLine",
+					"enum": [
+						"NewLine",
+						"NoNewLine",
+						"NewLine"
+					],
+					"description": ""
+				},
+				"vhdl.formatter.newline.else": {
+					"type": "string",
+					"default": "NewLine",
+					"enum": [
+						"NewLine",
+						"NoNewLine",
+						"None"
+					],
+					"description": ""
+				},
+				"vhdl.formatter.newline.generic": {
+					"type": "string",
+					"default": "None",
+					"enum": [
+						"NewLine",
+						"NoNewLine",
+						"None"
+					],
+					"description": ""
+				}
+			}
+		}
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install && tsc"
+	},
+	"devDependencies": {
+		"@types/node": "^8.10.43",
+		"typescript": "^3.1.3",
+		"vscode": "^1.1.33"
+	},
+	"__metadata": {
+		"id": "c56abff9-52e0-42ae-a416-ae660e196194",
+		"publisherId": "1018f561-883c-41cb-8f4c-30736d91d7b8",
+		"publisherDisplayName": "Vinrobot"
+	}
+}

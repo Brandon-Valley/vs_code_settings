@@ -1,0 +1,397 @@
+{
+	"name": "vscode-surround",
+	"displayName": "Surround",
+	"description": "A simple yet powerful extension to add wrapper templates around your code blocks.",
+	"version": "1.0.2",
+	"publisher": "yatki",
+	"licence": "LICENCE",
+	"bugs": {
+		"url": "https://github.com/yatki/vscode-surround/issues",
+		"email": "mehmet@yatki.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yatki/vscode-surround.git"
+	},
+	"homepage": "https://github.com/yatki/vscode-surround",
+	"engines": {
+		"vscode": "^1.23.0"
+	},
+	"categories": [
+		"Snippets",
+		"Other"
+	],
+	"keywords": [
+		"surround",
+		"wrap",
+		"selection",
+		"code blocks",
+		"snippet"
+	],
+	"badges": [
+		{
+			"url": "https://img.shields.io/vscode-marketplace/v/yatki.vscode-surround.svg?style=flat-square",
+			"href": "https://marketplace.visualstudio.com/items?itemName=yatki.vscode-surround",
+			"description": "Visual Studio Marketplace"
+		},
+		{
+			"url": "https://img.shields.io/vscode-marketplace/d/yatki.vscode-surround.svg?style=flat-square",
+			"href": "https://marketplace.visualstudio.com/items?itemName=yatki.vscode-surround",
+			"description": "Visual Studio Marketplace"
+		},
+		{
+			"url": "https://img.shields.io/github/last-commit/yatki/vscode-surround.svg?style=flat-square",
+			"href": "https://github.com/yatki/vscode-surround",
+			"description": "GitHub last commit"
+		},
+		{
+			"url": "https://img.shields.io/github/license/yatki/vscode-surround.svg?style=flat-square",
+			"href": "https://github.com/yatki/vscode-surround",
+			"description": "Licence"
+		}
+	],
+	"markdown": "github",
+	"icon": "images/logo.png",
+	"galleryBanner": {
+		"color": "#c2e1ea",
+		"theme": "light"
+	},
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/surround",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Surround With",
+			"properties": {
+				"surround.custom": {
+					"type": "object",
+					"default": {}
+				},
+				"surround.with.if": {
+					"type": "object",
+					"default": {
+						"label": "if",
+						"description": "if ($condition) { ... }",
+						"disabled": false,
+						"snippet": "if(${1:condition}) {\n\t$TM_SELECTED_TEXT\n}$0"
+					}
+				},
+				"surround.with.ifElse": {
+					"type": "object",
+					"default": {
+						"label": "if/else",
+						"description": "if ($condition) { ... } else { $else }",
+						"disabled": false,
+						"snippet": "if(${1:condition}) {\n\t$TM_SELECTED_TEXT\n} else {\n\t$2\n}$0"
+					}
+				},
+				"surround.with.tryCatch": {
+					"type": "object",
+					"default": {
+						"label": "try/catch",
+						"description": "try { ... } catch (err) { $catchBlock }",
+						"disabled": false,
+						"snippet": "try {\n\t$TM_SELECTED_TEXT\n} catch (err) {\n\t$1\n}$0"
+					}
+				},
+				"surround.with.tryFinally": {
+					"type": "object",
+					"default": {
+						"label": "try/finaly",
+						"description": "try { ... } finally { $finalBlock }",
+						"disabled": false,
+						"snippet": "try {\n\t$TM_SELECTED_TEXT\n} finally {\n\t$1\n}$0"
+					}
+				},
+				"surround.with.tryCatchFinally": {
+					"type": "object",
+					"default": {
+						"label": "try/catch/finally",
+						"description": "try { ... } catch (err) {$catchBlock} finally { $finalBlock }",
+						"disabled": false,
+						"snippet": "try {\n\t$TM_SELECTED_TEXT\n} catch (err) {\n\t$1\n} finally {\n\t$2\n}$0"
+					}
+				},
+				"surround.with.for": {
+					"type": "object",
+					"default": {
+						"label": "for",
+						"description": "for ($1) { ... }",
+						"disabled": false,
+						"snippet": "for ($1) {\n\t$TM_SELECTED_TEXT\n}$0"
+					}
+				},
+				"surround.with.fori": {
+					"type": "object",
+					"default": {
+						"label": "fori",
+						"description": "for (let i = 0; ... ; i = i + 1) { ... }",
+						"disabled": false,
+						"snippet": "for (let ${1:i} = ${2:0}; ${3:conditions}; $1 = $1 + 1) {\n\t$TM_SELECTED_TEXT\n}$0"
+					}
+				},
+				"surround.with.forEach": {
+					"type": "object",
+					"default": {
+						"label": "forEach",
+						"description": "items.forEach((item) => { ... })",
+						"disabled": false,
+						"snippet": "${1:items}.forEach((${2:item}) => {\n\t$TM_SELECTED_TEXT\n})$0"
+					}
+				},
+				"surround.with.forEachAsync": {
+					"type": "object",
+					"default": {
+						"label": "forEachAsync",
+						"description": "items.forEach(async (item) => { ... })",
+						"disabled": false,
+						"snippet": "${1:items}.forEach(async (${2:item}) => {\n\t$TM_SELECTED_TEXT\n})$0"
+					}
+				},
+				"surround.with.forEachFn": {
+					"type": "object",
+					"default": {
+						"label": "forEachFn",
+						"description": "items.forEach(function (item) { ... })",
+						"disabled": false,
+						"snippet": "${1:items}.forEach(function (${2:item}) {\n\t$TM_SELECTED_TEXT\n})$0"
+					}
+				},
+				"surround.with.forEachAsyncFn": {
+					"type": "object",
+					"default": {
+						"label": "forEachAsyncFn",
+						"description": "items.forEach(async function (item) { ... })",
+						"disabled": false,
+						"snippet": "${1:items}.forEach(async function (${2:item}) {\n\t$TM_SELECTED_TEXT\n})$0"
+					}
+				},
+				"surround.with.arrowFunction": {
+					"type": "object",
+					"default": {
+						"label": "arrowFunction",
+						"description": "const $name = ($params) => { ... }",
+						"disabled": false,
+						"snippet": "const ${1:fnName} = (${2:params}) => {\n\t$TM_SELECTED_TEXT\n}$0"
+					}
+				},
+				"surround.with.asyncArrowFunction": {
+					"type": "object",
+					"default": {
+						"label": "asyncArrowFunction",
+						"description": "const $name = async ($params) => { ... }",
+						"disabled": false,
+						"snippet": "const ${1:fnName} = async (${2:params}) => {\n\t$TM_SELECTED_TEXT\n}$0"
+					}
+				},
+				"surround.with.functionDeclaration": {
+					"type": "object",
+					"default": {
+						"label": "functionDeclaration",
+						"description": "function $name ($params) { ... }",
+						"disabled": false,
+						"snippet": "function ${1:name} (${2:params}) {\n\t$TM_SELECTED_TEXT\n}$0"
+					}
+				},
+				"surround.with.asyncFunctionDeclaration": {
+					"type": "object",
+					"default": {
+						"label": "asyncFunctionDeclaration",
+						"description": "async function $name ($params) { ... }",
+						"disabled": false,
+						"snippet": "async function ${1:name} (${2:params}) {\n\t$TM_SELECTED_TEXT\n}$0"
+					}
+				},
+				"surround.with.functionExpression": {
+					"type": "object",
+					"default": {
+						"label": "functionExpression",
+						"description": "const $name = function ($params) { ... }",
+						"disabled": false,
+						"snippet": "const ${1:name} = function (${2:params}) {\n\t$TM_SELECTED_TEXT\n}$0"
+					}
+				},
+				"surround.with.asyncFunctionExpression": {
+					"type": "object",
+					"default": {
+						"label": "asyncFunctionExpression",
+						"description": "const $name = async function ($params) { ... }",
+						"disabled": false,
+						"snippet": "const ${1:name} = async function (${2:params}) {\n\t$TM_SELECTED_TEXT\n}$0"
+					}
+				},
+				"surround.with.element": {
+					"type": "object",
+					"default": {
+						"label": "<element></element>",
+						"description": "<element>...</element>",
+						"disabled": false,
+						"snippet": "<${1:element}$2>$TM_SELECTED_TEXT</$1>$0"
+					}
+				},
+				"surround.with.comment": {
+					"type": "object",
+					"default": {
+						"label": "comment",
+						"description": "/** ...  */",
+						"disabled": false,
+						"snippet": "/**\n\t$TM_SELECTED_TEXT\n*/$0"
+					}
+				},
+				"surround.with.region": {
+					"type": "object",
+					"default": {
+						"label": "#region",
+						"description": "#region $regionName ... #endregion",
+						"disabled": false,
+						"snippet": "// #region ${1:regionName}\n$TM_SELECTED_TEXT\n// #endregion$0"
+					}
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "surround.with",
+				"title": "Surround With"
+			},
+			{
+				"command": "surround.with.if",
+				"title": "if",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.ifElse",
+				"title": "if/else",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.tryCatch",
+				"title": "try/catch",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.tryFinally",
+				"title": "try/finaly",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.tryCatchFinally",
+				"title": "try/catch/finally",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.for",
+				"title": "for",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.fori",
+				"title": "fori",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.forEach",
+				"title": "forEach",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.forEachAsync",
+				"title": "forEachAsync",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.forEachFn",
+				"title": "forEachFn",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.forEachAsyncFn",
+				"title": "forEachAsyncFn",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.arrowFunction",
+				"title": "arrowFunction",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.asyncArrowFunction",
+				"title": "asyncArrowFunction",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.functionDeclaration",
+				"title": "functionDeclaration",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.asyncFunctionDeclaration",
+				"title": "asyncFunctionDeclaration",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.functionExpression",
+				"title": "functionExpression",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.asyncFunctionExpression",
+				"title": "asyncFunctionExpression",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.element",
+				"title": "<element></element>",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.comment",
+				"title": "comment",
+				"category": "Surround With"
+			},
+			{
+				"command": "surround.with.region",
+				"title": "#region",
+				"category": "Surround With"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "surround.with",
+				"key": "ctrl+shift+T",
+				"mac": "cmd+shift+T",
+				"when": "editorHasSelection"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorHasSelection",
+					"command": "surround.with",
+					"group": "1_modification"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.6",
+		"tslint": "^5.8.0",
+		"@types/node": "^7.0.43",
+		"@types/mocha": "^2.2.42"
+	},
+	"__metadata": {
+		"id": "b476195a-5d3b-4a10-af0b-3d94f9c9f924",
+		"publisherId": "3b220d68-f09c-4239-9a64-e292544c0781",
+		"publisherDisplayName": "Mehmet Yatkı"
+	}
+}

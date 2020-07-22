@@ -1,0 +1,65 @@
+{
+	"name": "vhdl-tool",
+	"displayName": "VHDL Language Server",
+	"description": "Language Server Protocol for VHDL via VHDL-Tool",
+	"version": "0.0.4",
+	"license": "MIT",
+	"publisher": "vhdl-tool",
+	"homepage": "https://www.vhdltool.com",
+	"repository": {
+		"type": "git",
+		"url": "https://git.vhdltool.com/vhdl-tool/vhdltool-vscode"
+	},
+	"bugs": {
+		"url": "https://git.vhdltool.com/vhdl-tool/vhdl-tool/issues"
+	},
+	"engines": {
+		"vscode": "^1.26.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Linters"
+	],
+	"activationEvents": [
+		"onLanguage:vhdl"
+	],
+	"main": "./out/src/extension",
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^4.1.4"
+	},
+	"devDependencies": {
+		"typescript": "^3.5.1",
+		"vscode": "^1.1.34",
+		"@types/mocha": "^5.2.0",
+		"@types/node": "^8.0.0"
+	},
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "VHDL-Tool",
+			"properties": {
+				"vhdltool.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VS Code and the language server."
+				}
+			}
+		}
+	},
+	"__metadata": {
+		"id": "2510ffdd-c958-4648-8fc2-6b674c740481",
+		"publisherId": "80297cbc-cb2c-4936-9469-14d8d97c3e72",
+		"publisherDisplayName": "VHDL Tool"
+	}
+}

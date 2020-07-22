@@ -1,0 +1,167 @@
+{
+	"name": "fontsize-shortcuts",
+	"displayName": "FontSize Shortcuts ",
+	"description": "Change the font size with keyboard shortcuts",
+	"version": "1.5.0",
+	"publisher": "fosshaas",
+	"bugs": {
+		"url": "https://github.com/foss-haas/vsc-fontsize-shortcuts/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/foss-haas/vsc-fontsize-shortcuts.git"
+	},
+	"engines": {
+		"vscode": "^1.6.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"homepage": "https://github.com/peterjuras/vsc-fontsize-shortcuts/blob/master/README.md",
+	"keywords": [
+		"Font",
+		"Fontsize",
+		"Size",
+		"Keyboard",
+		"Shortcut"
+	],
+	"icon": "assets/logo.png",
+	"galleryBanner": {
+		"color": "#2980b9",
+		"theme": "dark"
+	},
+	"activationEvents": [
+		"onCommand:fontshortcuts.increaseFontSize",
+		"onCommand:fontshortcuts.decreaseFontSize",
+		"onCommand:fontshortcuts.resetFontSize",
+		"onCommand:fontshortcuts.increaseEditorFontSize",
+		"onCommand:fontshortcuts.decreaseEditorFontSize",
+		"onCommand:fontshortcuts.resetEditorFontSize",
+		"onCommand:fontshortcuts.increaseTerminalFontSize",
+		"onCommand:fontshortcuts.decreaseTerminalFontSize",
+		"onCommand:fontshortcuts.resetTerminalFontSize"
+	],
+	"main": "./out/src/extension",
+	"license": "MIT",
+	"contributes": {
+		"commands": [
+			{
+				"command": "fontshortcuts.increaseEditorFontSize",
+				"title": "Increase editor font size"
+			},
+			{
+				"command": "fontshortcuts.decreaseEditorFontSize",
+				"title": "Decrease editor font size"
+			},
+			{
+				"command": "fontshortcuts.resetEditorFontSize",
+				"title": "Reset editor font size"
+			},
+			{
+				"command": "fontshortcuts.increaseTerminalFontSize",
+				"title": "Increase terminal font size"
+			},
+			{
+				"command": "fontshortcuts.decreaseTerminalFontSize",
+				"title": "Decrease terminal font size"
+			},
+			{
+				"command": "fontshortcuts.resetTerminalFontSize",
+				"title": "Reset terminal font size"
+			},
+			{
+				"command": "fontshortcuts.increaseFontSize",
+				"title": "Increase global font size"
+			},
+			{
+				"command": "fontshortcuts.decreaseFontSize",
+				"title": "Decrease global font size"
+			},
+			{
+				"command": "fontshortcuts.resetFontSize",
+				"title": "Reset global font size"
+			}
+		],
+		"configuration": {
+			"title": "FontSize Shortcuts Configuration",
+			"properties": {
+				"fontshortcuts.defaultFontSize": {
+					"type": [
+						"number",
+						"null"
+					],
+					"description": "The default editor font size that is used on a font size reset",
+					"default": null
+				},
+				"fontshortcuts.defaultTerminalFontSize": {
+					"type": [
+						"number",
+						"null"
+					],
+					"description": "The default terminal font size that is used on a font size reset",
+					"default": null
+				},
+				"fontshortcuts.step": {
+					"type": "number",
+					"description": "The increment or decrement step for a font size change",
+					"default": 1
+				}
+			}
+		},
+		"keybindings": [
+			{
+				"command": "fontshortcuts.increaseEditorFontSize",
+				"key": "ctrl+=",
+				"mac": "cmd+=",
+				"when": "editorFocus"
+			},
+			{
+				"command": "fontshortcuts.decreaseEditorFontSize",
+				"key": "ctrl+-",
+				"mac": "cmd+-",
+				"when": "editorFocus"
+			},
+			{
+				"command": "fontshortcuts.resetEditorFontSize",
+				"key": "ctrl+0",
+				"mac": "cmd+0",
+				"when": "editorFocus"
+			},
+			{
+				"command": "fontshortcuts.increaseTerminalFontSize",
+				"key": "ctrl+=",
+				"mac": "cmd+=",
+				"when": "terminalFocus"
+			},
+			{
+				"command": "fontshortcuts.decreaseTerminalFontSize",
+				"key": "ctrl+-",
+				"mac": "cmd+-",
+				"when": "terminalFocus"
+			},
+			{
+				"command": "fontshortcuts.resetTerminalFontSize",
+				"key": "ctrl+0",
+				"mac": "cmd+0",
+				"when": "terminalFocus"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.32",
+		"@types/node": "^6.0.40",
+		"mocha": "^2.3.3",
+		"typescript": "^2.0.3",
+		"vscode": "^1.0.0"
+	},
+	"__metadata": {
+		"id": "828a25d0-b7db-4dbd-8386-35a86c357025",
+		"publisherId": "4db2b741-0626-4a1a-8e56-5307faf01d6e",
+		"publisherDisplayName": "Foss & Haas GmbH"
+	}
+}

@@ -1,0 +1,130 @@
+{
+	"name": "vhdl-ls",
+	"displayName": "VHDL LS",
+	"description": "VHDL Language Server and Support",
+	"author": "Henrik Bohlin",
+	"publisher": "hbohlin",
+	"license": "SEE LICENSE IN LICENSE",
+	"version": "0.3.1",
+	"icon": "icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Bochlin/rust_hdl_vscode"
+	},
+	"categories": [
+		"Programming Languages",
+		"Snippets"
+	],
+	"keywords": [
+		"VHDL",
+		"vhdl",
+		"language-vhdl",
+		"hdl",
+		"rust_hdl",
+		"ide",
+		"vhdl_ls"
+	],
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"activationEvents": [
+		"onLanguage:vhdl",
+		"onCommand:vhdlls.restart"
+	],
+	"main": "./dist/extension",
+	"contributes": {
+		"languages": [
+			{
+				"id": "vhdl",
+				"aliases": [
+					"VHDL",
+					"vhdl"
+				],
+				"extensions": [
+					".vhd",
+					".vhdl",
+					".vho"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"configurationDefaults": {
+			"[vhdl]": {
+				"files.encoding": "iso88591"
+			}
+		},
+		"grammars": [
+			{
+				"language": "vhdl",
+				"scopeName": "source.vhdl",
+				"path": "./syntaxes/vhdl.tmLanguage"
+			}
+		],
+		"snippets": [
+			{
+				"language": "vhdl",
+				"path": "./snippets/vhdl.json"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "VHDL",
+			"properties": {
+				"vhdlls.languageServer": {
+					"description": "Language server location. Changing this option requires a restart.",
+					"type": "string",
+					"default": "embedded",
+					"enum": [
+						"embedded",
+						"user",
+						"systemPath",
+						"docker"
+					],
+					"enumDescriptions": [
+						"Use language server embedded in extension.",
+						"Use custom path vhdlls.languageServerUserPath",
+						"Run vhdl_ls from system path.",
+						"Use kraigher/vhdl_ls:latest image from Docker Hub"
+					]
+				},
+				"vhdlls.languageServerUserPath": {
+					"description": "Path to vhdl_ls language server executable, used when vhdlls.languageServer = \"user\"",
+					"type": "string"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "vhdlls.restart",
+				"title": "Restart VHDL LS",
+				"category": "VHDL LS"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "cd client && npm run update-vscode && cd .. && webpack --mode production",
+		"compile": "cd client && tsc -b && cd ..",
+		"watch": "cd client && tsc -b -w  && cd ..",
+		"postinstall": "cd client && npm install && cd ..",
+		"test": "sh ./scripts/e2e.sh",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch",
+		"test-compile": "tsc -p ./"
+	},
+	"devDependencies": {
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.12.14",
+		"js-yaml": "^3.13.1",
+		"ts-loader": "^6.2.1",
+		"tslint": "^5.20.0",
+		"typescript": "^3.7.2",
+		"vsce": "^1.70.0",
+		"webpack": "4.42.1",
+		"webpack-cli": "3.3.10"
+	},
+	"__metadata": {
+		"id": "0fdc528a-7219-45c6-ae94-1ad0e6fbd85a",
+		"publisherId": "b5135d4f-c86f-43f2-b49a-12fcd3cf6308",
+		"publisherDisplayName": "Henrik Bohlin"
+	}
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Language="en-US" Id="vscode-surround" Version="1.0.2" Publisher="yatki"/>
+    <DisplayName>Surround</DisplayName>
+    <Description xml:space="preserve">A simple yet powerful extension to add wrapper templates around your code blocks.</Description>
+    <Tags>surround,wrap,selection,code blocks,snippet,keybindings</Tags>
+    <Categories>Snippets,Other</Categories>
+    <GalleryFlags>Public</GalleryFlags>
+    <Badges><Badge Link="https://marketplace.visualstudio.com/items?itemName=yatki.vscode-surround" ImgUri="https://img.shields.io/vscode-marketplace/v/yatki.vscode-surround.svg?style=flat-square" Description="Visual Studio Marketplace" /><Badge Link="https://marketplace.visualstudio.com/items?itemName=yatki.vscode-surround" ImgUri="https://img.shields.io/vscode-marketplace/d/yatki.vscode-surround.svg?style=flat-square" Description="Visual Studio Marketplace" /><Badge Link="https://github.com/yatki/vscode-surround" ImgUri="https://img.shields.io/github/last-commit/yatki/vscode-surround.svg?style=flat-square" Description="GitHub last commit" /><Badge Link="https://github.com/yatki/vscode-surround" ImgUri="https://img.shields.io/github/license/yatki/vscode-surround.svg?style=flat-square" Description="Licence" /></Badges>
+    <Properties>
+      <Property Id="Microsoft.VisualStudio.Code.Engine" Value="^1.23.0" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
+      
+        <Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://github.com/yatki/vscode-surround.git" />
+        <Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://github.com/yatki/vscode-surround.git" />
+        
+          <Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="https://github.com/yatki/vscode-surround.git" />
+        
+      
+      <Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="https://github.com/yatki/vscode-surround/issues" />
+      <Property Id="Microsoft.VisualStudio.Services.Links.Learn" Value="https://github.com/yatki/vscode-surround" />
+      <Property Id="Microsoft.VisualStudio.Services.Branding.Color" Value="#c2e1ea" />
+      <Property Id="Microsoft.VisualStudio.Services.Branding.Theme" Value="light" />
+      <Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />
+      
+      
+    </Properties>
+    <License>extension/LICENSE.txt</License>
+    <Icon>extension/images/logo.png</Icon>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+  </Installation>
+  <Dependencies/>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+    <Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/README.md" Addressable="true" /><Asset Type="Microsoft.VisualStudio.Services.Content.Changelog" Path="extension/CHANGELOG.md" Addressable="true" /><Asset Type="Microsoft.VisualStudio.Services.Content.License" Path="extension/LICENSE.txt" Addressable="true" /><Asset Type="Microsoft.VisualStudio.Services.Icons.Default" Path="extension/images/logo.png" Addressable="true" />
+  </Assets>
+</PackageManifest>
