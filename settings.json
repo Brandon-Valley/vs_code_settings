@@ -1,0 +1,234 @@
+{
+    "background.enabled": false,
+    "editor.minimap.side": "left",
+    
+	// Issues found by the spell checker are marked with a Diagnostic Severity Level. This affects the color of squiggle.
+    "cSpell.diagnosticLevel": "Error",
+    "cSpell.enableFiletypes": [
+        "bat",
+        "coffeescript",
+        "diff",
+        "gitignore",
+        "ignore",
+        "log",
+        "powershell",
+        "systemverilog",
+        "verilog",
+        "vhdl"
+    ],
+    "cSpell.userWords": [
+        "ACLK",
+        "ALOCK",
+        "ARUSER",
+        "AWUSER",
+        "BAHD",
+        "EDIF",
+        "IRAD",
+        "JDAM",
+        "Jira",
+        "NOLOCK",
+        "REGS",
+        "SYNTHESIZABLE",
+        "SYNTHESIZEABLE",
+        "UARTs",
+        "Uncommenting",
+        "Verilog",
+        "Vivado",
+        "WIDH",
+        "WUSER",
+        "WUSR",
+        "XILINX",
+        "ZUES",
+        "araddr",
+        "aresetn",
+        "arprot",
+        "arready",
+        "arvalid",
+        "awaddr",
+        "awprot",
+        "awready",
+        "awvalid",
+        "bready",
+        "bresp",
+        "bvalid",
+        "bxml",
+        "ctypes",
+        "deassert",
+        "defaultlib",
+        "dmypy",
+        "docx",
+        "downto",
+        "endmodule",
+        "endtask",
+        "i'length",
+        "imgs",
+        "mhtml",
+        "mypy",
+        "posedge",
+        "pyinstaller",
+        "rdata",
+        "regs'length",
+        "rready",
+        "rresp",
+        "rvalid",
+        "stobed",
+        "strbs",
+        "submodules",
+        "systemverilog",
+        "testbench",
+        "trng",
+        "uart",
+        "ulong",
+        "vhdl",
+        "wcfg",
+        "wdata",
+        "windll",
+        "wready",
+        "wstrb",
+        "wvalid",
+        "xlsx"
+    ],
+    "window.zoomLevel": 0,
+    "editor.lineHeight": 0,
+    "editor.fontSize": 15,
+    "vhdl.suggestLibraryCase": "lower",
+    "vhdl.formatter.case.keyword": "LowerCase",
+    "vhdl.formatter.case.typename": "LowerCase",
+    "workbench.iconTheme": "material-icon-theme",
+    "todo-tree.tree.showScanModeButton": false,
+    "yaml.schemas": {
+        "file:///c%3A/Users/mt204e/.vscode/extensions/atlassian.atlascode-2.6.6/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    // "editor.columnSelection": true,
+    "editor.definitionLinkOpensInPeek": true,
+    "editor.mouseWheelZoom": true,
+    "editor.smoothScrolling": true,
+    "editor.tabCompletion": "on",
+    "editor.cursorSmoothCaretAnimation": true,
+//     "workbench.colorCustomizations": {
+//     "[Community Material Theme High Contrast]": {entity.name.tag { "foreground": "#F07178" }
+// }
+
+
+
+"editor.tokenColorCustomizations": 
+    {
+        "textMateRules": 
+            [
+                {
+                    "scope": "entity.name.tag",
+                    "settings": 
+                                {
+                                    "foreground": "#fdb7fd"
+                                    // "foreground": "#ffa078"
+                                }
+                },
+                {
+                    "scope": "keyword.operator",
+                    "settings": 
+                                {
+                                    "foreground": "#ff9fcf" // pink
+                                    // "foreground": "#ffa078"
+                                    // "foreground": "#e45f60" // red
+                                }
+                }
+            ]
+    },
+    "atlascode.jira.lastCreateSiteAndProject": {
+        "siteId": "",
+        "projectKey": ""
+    },
+    "atlascode.jira.explorer.enabled": true,
+    "todo-tree.general.tags": [
+        "XXX",
+        "???",
+        "TODO",
+        "HACK",
+        "FIXME",
+        "FIX",
+        "BUG",
+        "TODO:  fix this"
+    ],
+    "atlascode.jira.todoIssues.enabled": false,
+
+    // https://github.com/Gruntfuggly/todo-tree#highlighting
+    "todo-tree.regex.regex": "((//|--|#|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
+    "todo-tree.highlights.defaultHighlight": {
+        "type": "text-and-comment",
+        "foreground": "red",
+        "fontWeight": "bold",
+        "gutterIcon": true,
+        "rulerLane" : "full"
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "foreground" : "#f8936f",
+            "rulerColour": "#f8936f",
+        },
+        "???": {
+            "icon"       : "question",
+            "foreground" : "#b777f7",
+            "rulerColour": "#b777f7",
+            "fontStyle"  : "italic",
+        },
+        "FIX": {
+            "icon"       : "flame",
+            "foreground" : "yellow",
+            "rulerColour": "yellow",
+        },
+        "BUG": {
+            "type"       : "text",
+            "foreground" : "green",
+            "rulerColour": "green",
+        },
+        "HACK": {
+            "icon"       : "thumbsdown",
+            "type"       : "text",
+            "foreground" : "green",
+            "rulerColour": "green"
+        }
+    },
+    "todo-tree.general.enableFileWatcher": true,
+    "todo-tree.general.revealBehaviour": "highlight todo",
+    "todo-tree.general.statusBar": "current file",
+    "todo-tree.tree.showCountsInTree": true,
+    // "alignment.surroundSpace": {
+
+    //         // "colon"      : [0, 1], // The first number specify how much space to add to the left, can be negative.
+    //         //                        // The second number is how much space to the right, can be negative.
+    //         // "assignment" : [1, 1], // The same as above.
+    //         "arrow"      : [1, 1], // The same as above.
+    //         // "comment"    : 2       // Special how much space to add between the trailing comment and the code.
+    //         //                        // If this value is negative, it means don't align the trailing comment.
+    //       }
+    // },
+
+
+    // rulers
+    "workbench.colorCustomizations": {
+        // "editor.rulers": [80,120],
+        // "editorRuler.foreground": "#ff4081"
+        "editorRuler.foreground": "#312f2f"
+    },
+    "editor.rulers": [
+        40,
+        80,
+        100,
+        120
+    ],
+    "bracket-pair-colorizer-2.colors": [
+        "Gold",
+        "LightSkyBlue",
+        "lightGreen",
+        "Orchid"
+    ],
+    "editor.quickSuggestions": true,
+    "rewrap.wrappingColumn": 120,
+    "cSpell.enabled": true
+    
+
+
+    
+
+
+}
